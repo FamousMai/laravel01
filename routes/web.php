@@ -37,3 +37,6 @@ Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 // 销毁会话（退出登录）
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
+// 编辑用户
+Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
