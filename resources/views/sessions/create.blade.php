@@ -8,9 +8,11 @@
                 <h5>登录</h5>
             </div>
             <div class="panel-body">
+                {{-- 引入错误消息局部视图 --}}
                 @include('shared._errors')
                 {{-- 在前面新增的路由中，有两个路由的命名完全一致，但由于我们在表单中清楚的指明了使用 POST 动作来提交用户的登录信息，因此 Laravel 会自动将该请求映射到会话控制器的 store 动作上。--}}
                 <form method="POST" action="{{ route('login') }}">
+                    {{-- 防止CSRF攻击 --}}
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -19,7 +21,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="password">密码：</label>
+                        <label for="password">密码（<a href="{{ route('password.request') }}">忘记密码</a>）：</label>
                         <input type="password" name="password" class="form-control" value="{{ old('password') }}">
                     </div>
 
