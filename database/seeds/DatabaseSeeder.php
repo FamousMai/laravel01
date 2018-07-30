@@ -13,9 +13,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
+        // 用户
         $this->call(UsersTableSeeder::class);
+        // 微博
         $this->call(StatusesTableSeeder::class);
+        // 粉丝和关注
+        $this->call(FollowersTableSeeder::class);
 
         Model::reguard();
     }
